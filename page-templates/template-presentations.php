@@ -38,15 +38,16 @@ get_header(); ?>
         <tbody>
           <?php
           $presentations = array(
-            array('2025', 'ABA in Clinical and Educational Settings', 'International ABA Conference – Online Keynote', 'https://autismconsultancyservices.co.uk/wp-content/uploads/2025/01/aba-clinical-educational-settings.pdf'),
-            array('2025', 'Understanding and Dealing with Challenging Behaviour', 'University of Roehampton – Invited Talk', 'https://autismconsultancyservices.co.uk/wp-content/uploads/2025/02/challenging-behaviour-roehampton.pdf'),
-            array('2024', 'Verbal Behaviour Approach: From Assessment to Intervention', '5th Panhellenic Scientific Conference', 'https://autismconsultancyservices.co.uk/wp-content/uploads/2024/11/verbal-behaviour-approach-panhellenic.pdf'),
-            array('2024', 'Teaching Methods and Decision-Making in Special Education', 'KENTABA Conference London', 'https://autismconsultancyservices.co.uk/wp-content/uploads/2024/09/teaching-methods-special-education.pdf'),
-            array('2023', 'RBT Training and Accreditation', 'University of Kent Workshop', 'https://autismconsultancyservices.co.uk/wp-content/uploads/2023/11/rbt-training-accreditation.pdf'),
-            array('2023', 'ABA Interventions for Children with ASD', 'University of Kent Keynote', 'https://autismconsultancyservices.co.uk/wp-content/uploads/2023/10/aba-interventions-asd-kent.pdf'),
-            array('2022', 'VB-MAPP Workshop', 'Training Workshop – Qatar', '#'),
-            array('2021', 'Forensic Behaviour Analysis', '2nd Scientific Conference Cyprus', '#'),
-            array('2019', 'Systematic Review of Video Modelling', 'International ABA Conference', '#'),
+            array('2026', 'Dealing with Challenging Behaviours in Children and Adults with Autism', 'Austria', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Dealing-with-Challenging-Behaviours-in-Children-and-Adults-with-Autism-Dr-C-Nikopoulos-Austria-_26.pdf'),
+            array('2024', 'Understanding and Dealing with Challenging Behaviours in Autism', 'Iraq', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Understanding-and-Dealing-with-Challenging-Behaviours-in-Autism-Dr-C-Nikopoulos-Iraq-_24.pdf'),
+            array('2020', 'Video modelling in autism (+Italian)', 'AARBA – Italy', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Video-modelling-in-autism-Dr-C-Nikopoulos-AARBA-_20-Italian.pdf'),
+            array('2019', 'Video modelling for children with ASD (Turkish)', 'Istanbul, Turkey', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Video-modelling-for-children-with-ASD-Dr-C-Nikopoulos-Istanbul-_19-Turkish.pdf'),
+            array('2018', 'Structuring an ABA programme for children with ASD (Greek)', 'Cyprus', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Structuring-an-ABA-programme-for-children-with-ASD-Dr-C-Nikopoulos-Cyprus-_18-Greek.pdf'),
+            array('2018', 'How parents can help their children (Greek)', 'Cyprus', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/How-parents-can-help-their-children-Dr-C-Nikopoulos-Cyprus-_18-Greek.pdf'),
+            array('2018', 'FBA and School-wide Behaviour Support Plans', 'Bucharest, Romania', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/FBA-and-School-wide-Behaviour-Support-Plans-Dr-C-Nikopoulos-Bucharest-_18-.pdf'),
+            array('2018', 'An Introduction to ABA', 'Riyadh, Saudi Arabia', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/An-Introduction-to-ABA-Dr-C-Nikopoulos-Riyadh-_18.pdf'),
+            array('2018', 'An Introduction to ABA & Video modelling', 'London, UK', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/An-Introduction-to-ABA-Video-modelling-Dr-C-Nikopoulos-London-_18.pdf'),
+            array('2015', 'Technology-based interventions', 'Moscow, Russia', 'https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Technology-based-interventions-Dr-C-Nikopoulos-Moscow-_15.pdf'),
           );
           foreach ($presentations as $p) {
           ?>
@@ -54,7 +55,7 @@ get_header(); ?>
             <td style="padding:16px 20px;font-family:var(--sans);font-size:14px;font-weight:600;color:var(--gold)"><?php echo esc_html($p[0]); ?></td>
             <td style="padding:16px 20px;font-family:var(--sans);font-size:14px;font-weight:400;color:var(--navy);line-height:1.5"><?php echo esc_html($p[1]); ?></td>
             <td style="padding:16px 20px;font-family:var(--sans);font-size:14px;font-weight:300;color:#5a6b82"><?php echo esc_html($p[2]); ?></td>
-            <td style="padding:16px 20px"><a href="<?php echo esc_url($p[3]); ?>" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;padding:8px 14px;border-radius:8px;background:rgba(1,81,152,0.06);transition:all 0.2s">Download PDF <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a></td>
+            <td style="padding:16px 20px"><a href="<?php echo esc_url($p[3]); ?>" download="" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;padding:8px 14px;border-radius:8px;background:rgba(1,81,152,0.06);transition:all 0.2s">Download PDF <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a></td>
           </tr>
           <?php } ?>
         </tbody>

@@ -76,7 +76,7 @@ get_header(); ?>
 </section>
 
 <!-- STATS -->
-<section class="stats-section section" style="padding:60px 0">
+<section class="stats-section section">
   <div class="container">
     <div class="stats-grid">
       <div class="stat-card reveal">

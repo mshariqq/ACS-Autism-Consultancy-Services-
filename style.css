@@ -4,7 +4,7 @@ Theme URI: https://autismconsultancyservices.co.uk
 Author: Muhammed Shariq Ahmed
 Author URI: https://mshariqq.github.io
 Description: Custom theme for Autism Consultancy Services Ltd — World-leading ABA therapy, assessment, and training for Autism Spectrum Disorder, led by Dr Christos Nikopoulos BCBA-D.
-Version: 1.0.3
+Version: 1.0.6
 License: Proprietary
 Text Domain: acs-theme
 */
@@ -390,6 +390,136 @@ nav.bar-hidden{top:0}
   pointer-events:none;
 }
 @keyframes shimmer{0%{background-position:-200% 0}50%{background-position:200% 0}100%{background-position:200% 0}}
+
+/* ─── STATS SECTION ─── */
+.stats-section {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--white) 40%, var(--cream) 100%);
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 40%, rgba(1,81,152,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 60%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.stat-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 44px 28px 38px;
+  text-align: center;
+  border: 1px solid rgba(8,28,64,0.06);
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(1,81,152,0.02), rgba(201,168,76,0.02));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--navy-mid), var(--gold));
+  background-size: 200% 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.stat-card:hover::after {
+  transform: scaleX(1);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 64px rgba(8,28,64,0.10);
+  border-color: rgba(201,168,76,0.15);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card:hover .stat-icon {
+  background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(1,81,152,0.06));
+  transform: scale(1.08) translateY(-2px);
+  border-radius: 18px;
+}
+
+.stat-icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--navy);
+  transition: all 0.4s ease;
+}
+
+.stat-card:hover .stat-icon svg {
+  color: var(--gold);
+  transform: scale(1.1);
+}
+
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(42px, 4.5vw, 56px);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
 
 .section{padding:110px 0}
 .container{max-width:1200px;margin:0 auto;padding:0 40px}
@@ -984,11 +1114,14 @@ footer::before{
   .sp-principles{max-height:280px}
   .scroll-progress-dots{right:14px}
 }
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:1fr 1fr!important}
+}
 @media(max-width:768px){
   .why-acs-grid{grid-template-columns:1fr 1fr!important}
 }
 @media(max-width:600px){
-  .services-grid,.footer-grid{grid-template-columns:1fr!important}
+  .services-grid,.footer-grid,.stats-grid{grid-template-columns:1fr!important}
   .footer-top{padding:60px 0 40px}
   .footer-grid{gap:32px}
   .footer-brand-desc{max-width:100%}

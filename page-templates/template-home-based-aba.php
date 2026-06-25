@@ -54,7 +54,7 @@ get_header(); ?>
         </ul>
       </div>
       <div class="homebased-about-visual reveal reveal-delay-2" style="position:relative">
-        <div class="homebased-about-image-frame" style="border-radius:20px;overflow:hidden;aspect-ratio:3/4"><img src="https://images.unsplash.com/photo-1516627145497-ae6b53e6b06f?w=800&q=80&fit=crop" alt="Home-based ABA session" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="homebased-about-image-frame" style="border-radius:20px;overflow:hidden;aspect-ratio:3/4"><img src="https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Home-based-ABA-programs-scaled.webp" alt="Home-based ABA session" style="width:100%;height:100%;object-fit:cover"></div>
         <div class="homebased-about-badge" style="position:absolute;bottom:-20px;right:-20px;background:var(--navy);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:14px;min-width:180px"><div class="homebased-about-badge-icon" style="width:40px;height:40px;border-radius:10px;background:rgba(201,168,76,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--gold)"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div><div class="homebased-about-badge-text"><strong style="display:block;font-family:var(--sans);font-size:15px;font-weight:600;color:var(--white)">Home-Based Programmes</strong><span style="font-family:var(--sans);font-size:11.5px;color:var(--text-muted)">Personalised, evidence-based ABA</span></div></div>
       </div>
     </div>
