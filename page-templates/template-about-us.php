@@ -15,7 +15,7 @@ get_header(); ?>
       <span>About Us</span>
     </div>
     <h1 class="page-title">About <em>ACS</em></h1>
-    <p class="page-subtitle">Autism Consultancy Services Ltd — bringing science into everyday practice for over 28 years.</p>
+    <p class="page-subtitle">Autism Consultancy Services Ltd — bringing science into everyday practice for over 29 years.</p>
   </div>
 </section>
 
@@ -31,7 +31,7 @@ get_header(); ?>
       </div>
       <div class="who-visual reveal reveal-delay-2" style="position:relative">
         <div class="who-image-frame" style="border-radius:20px;overflow:hidden;aspect-ratio:4/3">
-          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80&fit=crop" alt="ACS team" style="width:100%;height:100%;object-fit:cover">
+          <img src="https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Who-We-Are.webp" alt="Over 29 years of excellence" style="width:100%;height:100%;object-fit:cover">
         </div>
         <div class="who-badge" style="position:absolute;bottom:-20px;left:-20px;background:var(--navy);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:14px;min-width:180px">
           <div class="who-badge-icon" style="width:40px;height:40px;border-radius:10px;background:rgba(201,168,76,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>

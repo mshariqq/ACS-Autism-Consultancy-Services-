@@ -100,11 +100,11 @@ get_header(); ?>
       <div class="faq-accordion homebased-faq-list reveal reveal-delay-2">
         <?php
         $faqs = array(
-          array('How many hours of therapy will my child receive?', 'The number of hours varies depending on your child\'s individual needs and developmental goals. During the initial assessment, our BCBA-D team will recommend an appropriate number of hours, which is typically agreed in collaboration with you and any funding body involved.'),
-          array('Who will deliver the therapy?', 'Your child\'s programme is designed and supervised by a BCBA-D (Board Certified Behaviour Analyst at Doctoral Level). The day-to-day therapy may be delivered by a qualified therapist or tutor, who works under the close supervision of our BCBA-D team.'),
-          array('How are parents involved in the programme?', 'Parents are an integral part of the programme. We provide ongoing parent training and consultation to help you understand the strategies being used and feel confident supporting your child between sessions. We see parents as true partners in the process.'),
-          array('How is progress measured?', 'We use a rigorous data collection system to track your child\'s progress on every goal in their programme. Data is analysed regularly, and programme adjustments are made based on your child\'s progress. You receive regular progress reports and updates.'),
-          array('Can home-based ABA be combined with school support?', 'Yes — we often work alongside schools to ensure consistency between home and school environments. Our team can collaborate with school staff, share strategies, and support the transfer of skills across settings.'),
+          array('How many hours of therapy will my child receive?', 'Following your child\'s assessment, we will recommend the number of hours required to support meaningful and sustained progress.'),
+          array('Who will deliver the therapy?', 'A qualified ABA tutor under the close supervision of the BCBA-D Consultant.'),
+          array('How are parents involved in the programme?', 'We ensure parents are actively involved in all aspects of the programme and in the decision-making process.'),
+          array('How is progress measured?', 'Your child\'s progress will be objectively monitored through reliable data collection methods, which form an integral part of the programme.'),
+          array('Can home-based ABA be combined with school support?', 'Of course! This is the most common and effective method of ABA programme delivery.'),
         );
         foreach ($faqs as $i => $faq) {
         ?>

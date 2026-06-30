@@ -23,7 +23,7 @@ get_header(); ?>
     <div class="services-header reveal">
       <div class="eyebrow">Presentations</div>
       <h2 class="section-title">Conference <em>&amp; Training Materials</em></h2>
-      <p class="section-lead">Downloadable presentations from international conferences and training events. Links will open in a new tab.</p>
+      <p class="section-lead">Selected downloadable presentations from international conferences and training events. Links will open in a new tab.</p>
     </div>
     <div class="pub-table-wrap reveal" style="background:var(--white);border-radius:16px;border:1px solid rgba(8,28,64,0.08);overflow:hidden">
       <table class="pub-table" style="width:100%;border-collapse:collapse">
@@ -52,10 +52,10 @@ get_header(); ?>
           foreach ($presentations as $p) {
           ?>
           <tr style="border-bottom:1px solid rgba(8,28,64,0.06)">
-            <td style="padding:16px 20px;font-family:var(--sans);font-size:14px;font-weight:600;color:var(--gold)"><?php echo esc_html($p[0]); ?></td>
-            <td style="padding:16px 20px;font-family:var(--sans);font-size:14px;font-weight:400;color:var(--navy);line-height:1.5"><?php echo esc_html($p[1]); ?></td>
-            <td style="padding:16px 20px;font-family:var(--sans);font-size:14px;font-weight:300;color:#5a6b82"><?php echo esc_html($p[2]); ?></td>
-            <td style="padding:16px 20px"><a href="<?php echo esc_url($p[3]); ?>" download="" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;padding:8px 14px;border-radius:8px;background:rgba(1,81,152,0.06);transition:all 0.2s">Download PDF <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a></td>
+            <td data-label="Year" style="padding:16px 20px;font-family:var(--sans);font-size:14px;font-weight:600;color:var(--gold)"><?php echo esc_html($p[0]); ?></td>
+            <td data-label="Title" style="padding:16px 20px;font-family:var(--sans);font-size:14px;font-weight:400;color:var(--navy);line-height:1.5"><?php echo esc_html($p[1]); ?></td>
+            <td data-label="Venue" style="padding:16px 20px;font-family:var(--sans);font-size:14px;font-weight:300;color:#5a6b82"><?php echo esc_html($p[2]); ?></td>
+            <td data-label="Download" style="padding:16px 20px"><a href="<?php echo esc_url($p[3]); ?>" download="" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;padding:8px 14px;border-radius:8px;background:rgba(1,81,152,0.06);transition:all 0.2s">Download PDF <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a></td>
           </tr>
           <?php } ?>
         </tbody>

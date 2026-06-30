@@ -1,7 +1,6 @@
 <?php
 
 function acs_theme_setup() {
-    add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('custom-logo', array(
         'height'      => 80,
@@ -108,3 +107,161 @@ function acs_custom_logo_class($html) {
 add_filter('get_custom_logo', 'acs_custom_logo_class');
 
 add_filter('show_admin_bar', '__return_false');
+
+/* ─── CONTACT FORM HANDLER ─── */
+function acs_handle_contact_form() {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['acs_contact_submit'])) {
+        return;
+    }
+
+    if (!isset($_POST['acs_contact_nonce']) || !wp_verify_nonce($_POST['acs_contact_nonce'], 'acs_contact_action')) {
+        return;
+    }
+
+    $name    = isset($_POST['fullName']) ? sanitize_text_field(wp_unslash($_POST['fullName'])) : '';
+    $email   = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+    $phone   = isset($_POST['phone']) ? sanitize_text_field(wp_unslash($_POST['phone'])) : '';
+    $service = isset($_POST['service']) ? sanitize_text_field(wp_unslash($_POST['service'])) : '';
+    $message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+    $referer = wp_get_referer() ?: home_url('/contact-us/');
+
+    if (empty($name) || empty($email) || empty($message)) {
+        wp_safe_redirect(add_query_arg('acs_sent', '0', $referer));
+        exit;
+    }
+
+    if (!is_email($email)) {
+        wp_safe_redirect(add_query_arg('acs_sent', '0', $referer));
+        exit;
+    }
+
+    $to        = 'c.nikopoulos@autismconsultancyservices.co.uk';
+    $subject   = sprintf('ACS Website Enquiry — %s', $name);
+    $email_body = "Name: $name\nEmail: $email\nPhone: $phone\nService: $service\n\nMessage:\n$message\n";
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ACS Website <no-reply@autismconsultancyservices.co.uk>',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+    );
+
+    $sent = wp_mail($to, $subject, $email_body, $headers);
+
+    wp_safe_redirect(add_query_arg('acs_sent', $sent ? '1' : '0', $referer));
+    exit;
+}
+add_action('init', 'acs_handle_contact_form');
+
+/* ─── CUSTOMIZER: TOP BAR & SOCIAL ─── */
+function acs_customizer_register($wp_customize) {
+
+    // Section: Logo
+    $wp_customize->add_section('acs_logo', array(
+        'title'    => __('Logo', 'acs-theme'),
+        'priority' => 20,
+    ));
+
+    $wp_customize->add_setting('acs_logo_image', array(
+        'default'           => '',
+        'sanitize_callback' => 'absint',
+        'transport'         => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'acs_logo_image', array(
+        'label'    => __('Logo Image', 'acs-theme'),
+        'section'  => 'acs_logo',
+        'mime_type' => 'image',
+    )));
+
+    $wp_customize->add_setting('acs_logo_width', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ));
+    $wp_customize->add_control('acs_logo_width', array(
+        'label'       => __('Logo Width (px)', 'acs-theme'),
+        'description' => __('Leave empty to use native image width.', 'acs-theme'),
+        'section'     => 'acs_logo',
+        'type'        => 'number',
+        'input_attrs' => array('min' => 0, 'step' => 1),
+    ));
+
+    $wp_customize->add_setting('acs_logo_height', array(
+        'default'           => '128',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ));
+    $wp_customize->add_control('acs_logo_height', array(
+        'label'       => __('Logo Height (px)', 'acs-theme'),
+        'description' => __('Leave empty for auto height.', 'acs-theme'),
+        'section'     => 'acs_logo',
+        'type'        => 'number',
+        'input_attrs' => array('min' => 0, 'step' => 1),
+    ));
+
+    // Section: Top Bar
+    $wp_customize->add_section('acs_topbar', array(
+        'title'    => __('Top Bar', 'acs-theme'),
+        'priority' => 130,
+    ));
+
+    $wp_customize->add_setting('acs_announcement_visible', array(
+        'default'           => true,
+        'sanitize_callback' => 'wp_validate_boolean',
+        'transport'         => 'refresh',
+    ));
+    $wp_customize->add_control('acs_announcement_visible', array(
+        'label'    => __('Show Top Bar', 'acs-theme'),
+        'section'  => 'acs_topbar',
+        'type'     => 'checkbox',
+    ));
+
+    $wp_customize->add_setting('acs_announcement_text', array(
+        'default'           => 'ACS delivers expert ABA therapy & training across the UK, Europe, Middle East & globally — <a href="{{url}}">Get in touch today</a>',
+        'sanitize_callback' => 'wp_kses_post',
+        'transport'         => 'refresh',
+    ));
+    $wp_customize->add_control('acs_announcement_text', array(
+        'label'       => __('Announcement Text', 'acs-theme'),
+        'description' => __('Use {{url}} as placeholder for the link URL set below.', 'acs-theme'),
+        'section'     => 'acs_topbar',
+        'type'        => 'textarea',
+    ));
+
+    $wp_customize->add_setting('acs_announcement_url', array(
+        'default'           => home_url('/contact-us/'),
+        'sanitize_callback' => 'esc_url_raw',
+        'transport'         => 'refresh',
+    ));
+    $wp_customize->add_control('acs_announcement_url', array(
+        'label'   => __('"Get in touch" Link URL', 'acs-theme'),
+        'section' => 'acs_topbar',
+        'type'    => 'url',
+    ));
+
+    // Section: Social Media
+    $wp_customize->add_section('acs_social', array(
+        'title'    => __('Social Media', 'acs-theme'),
+        'priority' => 131,
+    ));
+
+    $socials = array(
+        'acs_social_twitter'      => array('label' => 'X (Twitter) URL', 'default' => 'https://x.com/ACS_London'),
+        'acs_social_linkedin'     => array('label' => 'LinkedIn URL', 'default' => 'https://www.linkedin.com/in/bcba-aba-autism-uk-saudi/'),
+        'acs_social_facebook'     => array('label' => 'Facebook URL', 'default' => 'https://www.facebook.com/ChristosACS/'),
+        'acs_social_researchgate' => array('label' => 'ResearchGate URL', 'default' => 'https://www.researchgate.net/profile/Christos-Nikopoulos'),
+    );
+
+    foreach ($socials as $key => $data) {
+        $wp_customize->add_setting($key, array(
+            'default'           => $data['default'],
+            'sanitize_callback' => 'esc_url_raw',
+            'transport'         => 'refresh',
+        ));
+        $wp_customize->add_control($key, array(
+            'label'   => __($data['label'], 'acs-theme'),
+            'section' => 'acs_social',
+            'type'    => 'url',
+        ));
+    }
+}
+add_action('customize_register', 'acs_customizer_register');

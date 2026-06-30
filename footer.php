@@ -118,5 +118,26 @@
 </footer>
 
 <?php wp_footer(); ?>
+<script>
+document.querySelectorAll('#mainNav .nav-links .menu-item-has-children > a:not(:has(.chevron-icon))').forEach(function(a) {
+  var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'chevron-icon');
+  svg.setAttribute('viewBox', '0 0 12 12');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('stroke-width', '1.8');
+  var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', 'M2 4l4 4 4-4');
+  svg.appendChild(path);
+  a.appendChild(svg);
+});
+document.querySelectorAll('#mainNav a[href]').forEach(function(a) {
+  var href = a.getAttribute('href').replace(/\/$/, '') || '/';
+  var loc = location.pathname.replace(/\/$/, '') || '/';
+  if (href === loc || (href !== '/' && loc.startsWith(href + '/'))) {
+    a.classList.add('active');
+  }
+});
+</script>
 </body>
 </html>

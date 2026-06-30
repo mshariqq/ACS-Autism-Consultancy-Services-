@@ -33,15 +33,17 @@
       dots.forEach((d,i)=>d.addEventListener('click',()=>{ stopAutoplay(); goTo(i); startAutoplay(); }));
       hero.addEventListener('mouseenter', stopAutoplay);
       hero.addEventListener('mouseleave', startAutoplay);
-      setTimeout(()=>{ hero.querySelectorAll('.hero-animate').forEach(el=>el.classList.add('visible')); }, 80);
+      requestAnimationFrame(()=>{ hero.querySelectorAll('.hero-animate').forEach(el=>el.classList.add('visible')); });
       setTimeout(nextSlide, 500);
       startAutoplay();
     }
   }
 
-  setTimeout(()=>{
-    document.querySelectorAll('.hero-animate').forEach(el=>el.classList.add('visible'));
-  }, 120);
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      document.querySelectorAll('.hero-animate').forEach(el=>el.classList.add('visible'));
+    });
+  });
 
   const navToggle=document.getElementById('navToggle');
   const navOffcanvas=document.getElementById('navOffcanvas');
@@ -85,71 +87,110 @@
 
   const story = document.getElementById('scienceStory');
   if(story){
-    const panels     = story.querySelectorAll('.scroll-panel');
-    const bgSlides   = story.querySelectorAll('.scroll-bg-slide');
-    const pills      = story.querySelectorAll('.scroll-tab-pill');
-    const dots       = story.querySelectorAll('.scroll-dot');
-    const progressBar= document.getElementById('sciProgressBar');
-    const scrollHint = document.getElementById('sciScrollHint');
-    const total = panels.length;
-    let current = 0, hintHidden = false;
+    const panels = story.querySelectorAll('.scroll-panel');
+    const pills = story.querySelectorAll('.scroll-tab-pill');
+    const tabCount = panels.length;
+    if(!tabCount) return;
 
-    function setPanel(idx){
-      if(idx === current && panels[current].classList.contains('active')) return;
-      panels[current].classList.remove('active','entering');
-      panels[current].classList.add('exiting');
-      bgSlides[current].classList.remove('active');
-      setTimeout(()=>{ panels[current].classList.remove('exiting'); }, 750);
-      current = idx;
-      panels[current].classList.remove('exiting','active');
-      panels[current].classList.add('entering');
-      bgSlides[current].classList.add('active');
-      requestAnimationFrame(()=>{
-        requestAnimationFrame(()=>{
-          panels[current].classList.remove('entering');
-          panels[current].classList.add('active');
-        });
-      });
-      pills.forEach((p,i) => p.classList.toggle('active', i===idx));
-      dots.forEach((d,i)  => d.classList.toggle('active',  i===idx));
+    let isMobile = window.innerWidth < 768;
+
+    function setSectionHeight(){
+      if(isMobile){ story.style.height = ''; return }
+      story.style.height = (tabCount * window.innerHeight) + 'px';
     }
 
-    function onScroll(){
-      const rect  = story.getBoundingClientRect();
-      const total_h = story.offsetHeight - window.innerHeight;
-      const scrolled  = -rect.top;
-      if(scrolled < 0 || scrolled > total_h) return;
-      const progress = scrolled / total_h;
-      const panelIndex = Math.min(total - 1, Math.floor(progress * total));
-      if(panelIndex !== current) setPanel(panelIndex);
-      const panelProgress = (progress * total) - panelIndex;
-      if(progressBar) progressBar.style.width = ((panelIndex + panelProgress) / total * 100) + '%';
-      if(!hintHidden && progress > 0.08){
-        hintHidden = true;
-        if(scrollHint) scrollHint.classList.add('hidden');
+    function updateTabs(){
+      if(isMobile) return;
+      const rect = story.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const sh = story.offsetHeight;
+      const scrollable = sh - vh;
+      if(scrollable <= 0) return;
+      const progress = Math.max(0, Math.min(1, -rect.top / scrollable));
+      const index = Math.min(tabCount - 1, Math.floor(progress * tabCount));
+      panels.forEach((p,i) => p.classList.toggle('active', i===index));
+      pills.forEach((p,i) => p.classList.toggle('active', i===index));
+    }
+
+    function handleResize(){
+      isMobile = window.innerWidth < 768;
+      setSectionHeight();
+      if(isMobile){
+        panels.forEach((p,i) => p.classList.toggle('active', i===0));
+        pills.forEach((p,i) => p.classList.toggle('active', i===0));
+      } else {
+        updateTabs();
       }
     }
 
-    function scrollToPanel(idx){
-      const sectionTop = story.getBoundingClientRect().top + window.scrollY;
-      const total_h    = story.offsetHeight - window.innerHeight;
-      window.scrollTo({ top: sectionTop + (idx / total) * total_h + 10, behavior: 'smooth' });
-    }
+    pills.forEach((pill, i) => {
+      pill.addEventListener('click', () => {
+        if(isMobile){
+          panels.forEach((p,j) => p.classList.toggle('active', j===i));
+          pills.forEach((p,j) => p.classList.toggle('active', j===i));
+          return;
+        }
+        const rect = story.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const sh = story.offsetHeight;
+        const scrollable = sh - vh;
+        const targetScroll = window.scrollY + rect.top + (i / tabCount * scrollable);
+        window.scrollTo({top: targetScroll, behavior: 'smooth'});
+      });
+    });
 
-    pills.forEach((p,i) => p.addEventListener('click', () => scrollToPanel(i)));
-    dots.forEach((d,i)  => d.addEventListener('click', () => scrollToPanel(i)));
-    panels.forEach((p,i) => { p.classList.remove('active','entering','exiting'); if(i===0) p.classList.add('active'); });
-    bgSlides.forEach((s,i) => { s.classList.remove('active'); if(i===0) s.classList.add('active'); });
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    setSectionHeight();
+    window.addEventListener('scroll', updateTabs, {passive: true});
+    window.addEventListener('resize', handleResize);
+    updateTabs();
   }
 
   document.querySelectorAll('.cform-input').forEach(input => {
     if (input.value.trim() !== '') { input.classList.add('has-value'); }
+    input.addEventListener('focus', () => { input.classList.add('has-value'); });
     input.addEventListener('blur', () => {
       input.value.trim() !== '' ? input.classList.add('has-value') : input.classList.remove('has-value');
     });
   });
+
+  document.querySelectorAll('select.cform-input').forEach(function(sel) {
+    if (sel.value) sel.classList.add('has-value');
+    sel.addEventListener('change', function() {
+      this.value ? this.classList.add('has-value') : this.classList.remove('has-value');
+    });
+  });
+
+  (function(){
+    var track=document.getElementById('booksCarouselTrack');
+    if(track){
+      var viewport=track.parentElement;
+      var dotsEl=document.getElementById('booksCarouselDots');
+      var prevBtn=document.querySelector('.books-carousel-prev');
+      var nextBtn=document.querySelector('.books-carousel-next');
+      var cards=track.children,total=cards.length;
+      if(total<2)return;
+      var cur=0,vis=5;
+      function getVis(){var w=window.innerWidth;return w<768?1:w<1024?3:5}
+      function upd(){
+        var max=Math.max(0,total-vis);cur=Math.min(cur,max);
+        var card=cards[0],cw=card.offsetWidth,gap=24;
+        track.style.transform='translateX(-'+(cur*(cw+gap))+'px)';
+        if(prevBtn)prevBtn.disabled=cur===0;
+        if(nextBtn)nextBtn.disabled=cur>=max;
+        if(dotsEl){
+          var n=max+1;
+          while(dotsEl.children.length<n){var d=document.createElement('button');d.className='books-carousel-dot';dotsEl.appendChild(d)}
+          while(dotsEl.children.length>n)dotsEl.removeChild(dotsEl.lastElementChild);
+          Array.from(dotsEl.children).forEach(function(d,i){d.classList.toggle('active',i===cur);d.onclick=function(){cur=i;upd()}})
+        }
+      }
+      function onResize(){var nv=getVis();if(nv!==vis){vis=nv;cur=Math.min(cur,Math.max(0,total-vis))}upd()}
+      vis=getVis();upd();
+      if(prevBtn)prevBtn.addEventListener('click',function(){if(cur>0){cur--;upd()}});
+      if(nextBtn)nextBtn.addEventListener('click',function(){var max=total-vis;if(cur<max){cur++;upd()}});
+      window.addEventListener('resize',onResize);
+    }
+  })();
 
   document.querySelectorAll('.training-faq-question, .homebased-faq-question').forEach(btn => {
     btn.addEventListener('click', () => {

@@ -211,7 +211,7 @@ get_header(); ?>
     <div class="about-grid">
       <div class="about-img-col reveal">
         <div class="about-img-frame">
-          <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=80&fit=crop" alt="Dr. Christos Nikopoulos">
+          <img src="https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Christos-About.webp" alt="Dr. Christos Nikopoulos">
         </div>
         <div class="about-credentials">
           <div class="about-cred-item">
@@ -248,103 +248,146 @@ get_header(); ?>
 
 <!-- SCIENCE STORY -->
 <section class="scroll-story" id="scienceStory">
-  <div class="scroll-story-track">
-    <div class="scroll-bg">
-      <div class="scroll-bg-slide active" style="background-image:url('https://images.unsplash.com/photo-1579165466741-7f35e4755660?w=1600&q=80&fit=crop')"></div>
-      <div class="scroll-bg-slide" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&q=80&fit=crop')"></div>
-      <div class="scroll-bg-slide" style="background-image:url('https://images.unsplash.com/photo-1577896851231-70acf6940f1b?w=1600&q=80&fit=crop')"></div>
-      <div class="scroll-bg-overlay"></div>
-    </div>
+  <div class="scroll-story-inner">
+    <div class="container">
     <div class="scroll-tab-bar">
       <div class="scroll-tab-pills">
-        <button class="scroll-tab-pill active" data-goto="0">Understanding ASD</button>
-        <button class="scroll-tab-pill" data-goto="1">Applied Behaviour Analysis</button>
-        <button class="scroll-tab-pill" data-goto="2">Our Approach</button>
+        <button class="scroll-tab-pill active" data-panel="0">Understanding ASD</button>
+        <button class="scroll-tab-pill" data-panel="1">Applied Behaviour Analysis</button>
+        <button class="scroll-tab-pill" data-panel="2">Our Approach</button>
       </div>
-    </div>
-    <div class="scroll-progress-dots" aria-hidden="true">
-      <div class="scroll-dot active" data-goto="0"></div>
-      <div class="scroll-dot" data-goto="1"></div>
-      <div class="scroll-dot" data-goto="2"></div>
-    </div>
-    <div class="scroll-progress-bar" id="sciProgressBar"></div>
-    <div class="scroll-hint" id="sciScrollHint">
-      <div class="scroll-hint-mouse"></div>
-      <span>Scroll to explore</span>
     </div>
     <div class="scroll-panels">
       <div class="scroll-panel active" data-panel="0">
-        <div>
+        <div class="scroll-card-left">
           <div class="sp-eyebrow">The Science</div>
-          <h2 class="sp-title">Understanding <em>Autism Spectrum Disorder</em></h2>
-          <p class="sp-body">ASD is a neurodevelopmental condition described in the latest clinical guidelines. Children and young people with ASD may experience differences in how they communicate, interact socially, and build relationships — including challenges with social communication, understanding nonverbal cues, and patterns of repetitive behaviours or focused interests.</p>
-          <p class="sp-body">ASD is a lifelong condition, though the support needs of each individual can change over time. With the right guidance and intervention, many individuals make meaningful progress and may reduce or transition out of certain services as they grow and develop.</p>
-          <p class="sp-body">Every child with ASD is unique, with their own strengths, needs, and learning style. Effective support is always personalised, grounded in research, and built around close collaboration with families and schools.</p>
+          <h2 class="sp-title">Understanding <em>Autism Spectrum Disorder</em> (ASD)</h2>
+          <div class="sp-body">
+            <p>ASD is a neurodevelopmental condition described in the latest clinical guidelines. Children and young people with ASD may experience differences in how they communicate, interact socially, and build relationships. These can include challenges with social communication, understanding nonverbal cues, and forming connections with others, alongside patterns of repetitive behaviours or focused interests.</p>
+            <p>ASD is a lifelong condition, though the support needs of each individual can change over time. With the right guidance and intervention, many individuals make meaningful progress and may reduce or transition out of certain services as they grow and develop.</p>
+            <p>Every child with ASD is unique, with their own strengths, needs, and learning style. Likewise, families and caregivers may experience changing levels of support needs over time. For this reason, effective support is always personalised and built around each child through carefully designed programmes developed by experienced professionals. These plans are grounded in proven, research-based approaches and involve close collaboration with families and schools to ensure the best possible outcomes.</p>
+          </div>
         </div>
-        <div>
-          <ul class="sp-principles">
-            <li class="sp-pi"><div class="sp-pi-num">01</div><div class="sp-pi-text"><strong>Individualised Support</strong><span>Every programme is designed around the unique strengths, needs, and goals of each child.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">02</div><div class="sp-pi-text"><strong>Evidence-Based Practice</strong><span>Strategies grounded in scientific research and proven methods, ensuring high-quality support.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">03</div><div class="sp-pi-text"><strong>Clear Goals &amp; Measurable Progress</strong><span>Skills broken into achievable steps, with progress carefully tracked to guide ongoing support.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">04</div><div class="sp-pi-text"><strong>Positive Reinforcement</strong><span>Encouraging and rewarding progress helps children build confidence and strengthen new skills.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">05</div><div class="sp-pi-text"><strong>Focus on Meaningful Skills</strong><span>Programmes prioritise communication, social interaction, independence, and learning readiness.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">06</div><div class="sp-pi-text"><strong>Consistency Across Environments</strong><span>Skills taught to transfer successfully at home, in school, and in everyday life.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">07</div><div class="sp-pi-text"><strong>Collaboration with Families &amp; Schools</strong><span>Close partnership with parents, caregivers, and educators ensures a consistent approach.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">08</div><div class="sp-pi-text"><strong>Ongoing Review &amp; Adaptation</strong><span>Programmes are regularly reviewed and adjusted to reflect each child's evolving needs.</span></div></li>
-          </ul>
+        <div class="scroll-card-right">
+          <div class="scroll-image-wrapper">
+            <img src="https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Spare-it-can-be-used-somewhere-scaled.webp" alt="Understanding Autism Spectrum Disorder" class="scroll-featured-image">
+          </div>
         </div>
       </div>
       <div class="scroll-panel" data-panel="1">
-        <div>
+        <div class="scroll-card-left">
           <div class="sp-eyebrow">The Method</div>
           <h2 class="sp-title">Applied <em>Behaviour Analysis</em></h2>
-          <p class="sp-body">ABA is a well-established scientific approach that focuses on understanding and improving behaviour in meaningful, practical ways. By carefully analysing how learning happens, ABA helps create supportive environments that encourage positive development and lasting change.</p>
-          <p class="sp-body">ABA is widely recognised as the leading evidence-based approach for supporting individuals with ASD. Decades of research have shown its effectiveness — endorsed by the American Academy of Pediatrics, the American Academy of Child and Adolescent Psychiatry, and the National Institute of Mental Health.</p>
-          <p class="sp-body">At its core, ABA recognises that behaviour is shaped by a person's experiences and environment. Progress is encouraged through clear goals, consistent practice, and positive reinforcement — helping children succeed across home, school, and the wider community.</p>
-        </div>
-        <div>
-          <ul class="sp-principles">
-            <li class="sp-pi"><div class="sp-pi-num">01</div><div class="sp-pi-text"><strong>Clear Goals &amp; Measurable Progress</strong><span>Skills are broken down into achievable steps, with progress carefully tracked to guide ongoing support.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">02</div><div class="sp-pi-text"><strong>Focus on Meaningful Skills</strong><span>Programmes focus on communication, social interaction, independence, and learning readiness.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">03</div><div class="sp-pi-text"><strong>Consistency Across Environments</strong><span>Skills taught to transfer successfully at home, school, and everyday life.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">04</div><div class="sp-pi-text"><strong>Positive Reinforcement at Every Step</strong><span>Celebrating progress encourages children to build on their strengths and grow in confidence.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">05</div><div class="sp-pi-text"><strong>Family &amp; Educator Partnership</strong><span>ABA works best when everyone in a child's life is involved, informed, and supported.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">06</div><div class="sp-pi-text"><strong>Ongoing Review &amp; Adaptation</strong><span>Programmes regularly reviewed and adjusted to reflect each child's progress and evolving needs.</span></div></li>
+          <div class="sp-body">
+            <p>ABA is a well-established scientific approach that focuses on understanding and improving behaviour in meaningful, practical ways. By carefully analysing how learning happens, ABA helps create supportive environments that encourage positive development and lasting change. It has been successfully used with individuals of all ages and across a wide range of needs.</p>
+            <p>ABA is widely recognised as the leading evidence-based approach for supporting individuals with Autism Spectrum Disorder (ASD). Decades of research have shown its effectiveness in helping individuals build new skills, strengthen existing abilities, and reduce behaviours that may impact everyday life. It is endorsed by respected organisations such as the American Academy of Pediatrics, the American Academy of Child and Adolescent Psychiatry, and the National Institute of Mental Health in the US.</p>
+            <p>At its core, ABA recognises that behaviour is shaped by a person's experiences and environment. By making thoughtful changes to these environments, we can support children in learning new skills step by step. Progress is encouraged through clear goals, consistent practice, and positive reinforcement, helping children succeed not just in one setting, but across home, school, and the wider community.</p>
+            <p>ABA programmes are highly personalised. They are designed by experienced professionals in close collaboration with families and educators, ensuring that each child's unique strengths and needs are fully supported. Programmes focus on essential areas such as communication, social skills, independence, and learning readiness, and can be adapted over time as the child grows and develops.</p>
+          </div>
+          <h3 class="sp-subtitle">Key Principles of Effective Applied Behaviour Analysis (ABA)</h3>
+          <p style="margin:12px 0 0;font-family:var(--sans);font-size:15px;font-weight:400;color:#4a5a72;line-height:1.7">ABA is guided by a set of core principles that ensure interventions are effective, meaningful, and tailored to each individual. These essential elements focus on creating positive, measurable outcomes that support development across home, school, and community settings.</p>
+          <ul class="principles-list">
+            <li><strong>Individualised Support</strong> Every programme is designed around the unique strengths, needs, and goals of each child, ensuring truly personalised care.</li>
+            <li><strong>Evidence-Based Practice</strong> Strategies are grounded in scientific research and proven methods, ensuring high-quality and effective support.</li>
+            <li><strong>Clear Goals and Measurable Progress</strong> Skills and behaviours are broken down into achievable steps, with progress carefully tracked to guide ongoing support.</li>
+            <li><strong>Positive Reinforcement</strong> Encouraging and rewarding progress helps children build confidence and strengthens new skills over time.</li>
+            <li><strong>Focus on Meaningful Skills</strong> Programmes prioritise practical life skills, including communication, social interaction, independence, and learning readiness.</li>
+            <li><strong>Consistency Across Environments</strong> Skills are taught in ways that help children apply them successfully at home, in school, and in everyday life.</li>
+            <li><strong>Collaboration with Families &amp; Schools</strong> Close partnership with parents, caregivers, and educators ensures a consistent and supportive approach.</li>
+            <li><strong>Ongoing Review &amp; Adaptation</strong> Programmes are regularly reviewed and adjusted to reflect each child's progress and evolving needs.</li>
           </ul>
+          <p style="margin:16px 0 0;font-family:var(--sans);font-size:15px;font-weight:400;color:#4a5a72;line-height:1.7">Together, these elements help create a structured, supportive environment where children can thrive and reach their full potential.</p>
+        </div>
+        <div class="scroll-card-right">
+          <div class="scroll-image-wrapper">
+            <img src="https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/Home-3-scaled.webp" alt="Applied Behaviour Analysis" class="scroll-featured-image">
+          </div>
         </div>
       </div>
       <div class="scroll-panel" data-panel="2">
-        <div>
+        <div class="scroll-card-left">
           <div class="sp-eyebrow">Our Philosophy</div>
-          <h2 class="sp-title">Our Approach <em>at ACS</em></h2>
-          <p class="sp-body">ACS is committed to improving the lives of individuals with ASD and related conditions through high-quality education, innovative research, and the use of technology — grounded in the principles of Applied Behaviour Analysis.</p>
-          <p class="sp-body">Our practice is built on a compassionate, person-centred approach that places the individual at the heart of everything we do.</p>
-          <div class="sp-note">
-            <div class="sp-note-label">We also support individuals presenting characteristics of:</div>
-            <div class="sp-tags">
-              <span class="sp-tag">ADHD</span>
-              <span class="sp-tag">Down's Syndrome</span>
-              <span class="sp-tag">Dyslexia</span>
-              <span class="sp-tag">Dyspraxia</span>
-              <span class="sp-tag">Fragile X Syndrome</span>
-              <span class="sp-tag">Learning Disabilities</span>
-              <span class="sp-tag">Social Communication Disorder</span>
+          <h2 class="sp-title">Our Approach at <em>Autism Consultancy Services</em> (ACS)</h2>
+          <div class="journey">
+            <div class="journey-track"></div>
+            <div class="journey-step">
+              <div class="journey-dot"><span>1</span></div>
+              <div class="journey-content">
+                <p>Autism Consultancy Services (ACS) is committed to improving the lives of individuals with Autism Spectrum Disorder (ASD) and related conditions through high-quality education, innovative research, and the use of technology. Our work is grounded in the principles of Applied Behaviour Analysis (ABA), ensuring that all support is guided by a well-established, evidence-based approach.</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="journey-dot"><span>2</span></div>
+              <div class="journey-content">
+                <h5 class="journey-step-title">Core Principles</h5>
+                <p>Our practice is built on the following core principles:</p>
+                <ul class="principles-list">
+                  <li><strong>Objective Assessment &amp; Measurement</strong> We carefully assess each individual by observing how their environment influences their behaviour, using clear and reliable data to guide our understanding.</li>
+                  <li><strong>Understanding the Whole Child</strong> We consider not only the behaviour itself, but also its context and meaning for the individual, their family, and their wider community.</li>
+                  <li><strong>Respect &amp; Dignity</strong> We place the individual at the centre of all we do, promoting dignity, respect, and a person-centred approach at every stage.</li>
+                  <li><strong>Skill Development &amp; Independence</strong> Using proven behavioural strategies, we support the development of essential skills that enhance health, independence, confidence, and overall quality of life.</li>
+                  <li><strong>Data-Driven Decision Making</strong> We continuously monitor progress through ongoing data collection and analysis, ensuring that interventions remain effective and responsive to each individual's needs.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="journey-dot"><span>3</span></div>
+              <div class="journey-content">
+                <h5 class="journey-step-title">Related Conditions</h5>
+                <p>Through this structured, compassionate, and personalised approach, we aim to help every individual reach their full potential. Hence, we provide evidence-based educational services for individuals with ASD who may also present characteristics of the following related conditions:</p>
+                <ul class="condition-list">
+                  <li>ADHD (Attention Deficit Hyperactivity Disorder)</li>
+                  <li>Down's syndrome</li>
+                  <li>Dyslexia</li>
+                  <li>Dyspraxia</li>
+                  <li>Fragile X syndrome</li>
+                  <li>Learning disabilities</li>
+                  <li>Social Communication Disorder</li>
+                </ul>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="journey-dot"><span>4</span></div>
+              <div class="journey-content">
+                <h5 class="journey-step-title">Areas We Support</h5>
+                <p>In essence, all individuals who present difficulties in any of the following areas — irrespective of whether they have been given a formal diagnosis or not — will largely benefit from our services:</p>
+                <ul class="area-list">
+                  <li>Adaptive and self-care skills.</li>
+                  <li>Attending and social referencing</li>
+                  <li>Cognitive functioning</li>
+                  <li>Community participation</li>
+                  <li>Coping and tolerance skills</li>
+                  <li>Emotional development</li>
+                  <li>Family relationships</li>
+                  <li>Language and communication</li>
+                  <li>Play and leisure skills</li>
+                  <li>Pre-academic skills</li>
+                  <li>Challenging, interfering or inappropriate behaviours</li>
+                  <li>Safety skills</li>
+                  <li>Self-advocacy and independence</li>
+                  <li>Self-management</li>
+                  <li>Social relationships</li>
+                  <li>Vocational skills</li>
+                </ul>
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="journey-dot"><span>5</span></div>
+              <div class="journey-content">
+                <p>Education of parents, teachers and other professionals — making also use of the power of technology — is an integral part of our services.</p>
+              </div>
             </div>
           </div>
         </div>
-        <div>
-          <ul class="sp-principles">
-            <li class="sp-pi"><div class="sp-pi-num">01</div><div class="sp-pi-text"><strong>Objective Assessment &amp; Measurement</strong><span>We carefully assess each individual by observing how their environment influences their behaviour, using clear and reliable data to guide our understanding.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">02</div><div class="sp-pi-text"><strong>Understanding the Whole Child</strong><span>We consider not only the behaviour itself, but also its context and meaning for the individual, their family, and their wider community.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">03</div><div class="sp-pi-text"><strong>Respect &amp; Dignity</strong><span>We place the individual at the centre of all we do, promoting dignity, respect, and a person-centred approach at every stage.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">04</div><div class="sp-pi-text"><strong>Skill Development &amp; Independence</strong><span>Using proven behavioural strategies, we support the development of essential skills that enhance health, independence, confidence, and quality of life.</span></div></li>
-            <li class="sp-pi"><div class="sp-pi-num">05</div><div class="sp-pi-text"><strong>Data-Driven Decision Making</strong><span>We continuously monitor progress through ongoing data collection and analysis, ensuring interventions remain effective and responsive.</span></div></li>
-          </ul>
+        <div class="scroll-card-right">
+          <div class="scroll-image-wrapper">
+            <img src="https://darkseagreen-stinkbug-382389.hostingersite.com/wp-content/uploads/2026/06/slider_img-1-3.jpeg" alt="Our Approach at Autism Consultancy Services (ACS)" class="scroll-featured-image">
+          </div>
         </div>
       </div>
     </div>
+    </div>
   </div>
-  <div class="scroll-story-spacer" aria-hidden="true"></div>
 </section>
 
 <!-- GLOBAL REACH -->
